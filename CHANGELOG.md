@@ -1,5 +1,11 @@
 # @sandeep-jaiswar/dev-cli
 
+## 0.0.2
+
+### Patch Changes
+
+- 37d850b: fix: change build strategy to tsup v0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
