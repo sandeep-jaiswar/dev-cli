@@ -13,8 +13,8 @@
     "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
     "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx,json,md}'",
     "changeset": "changeset",
-    "version-packages": "changeset version && bun install",
-    "release": "bun run version-packages && bun publish"
+    "version": "changeset version",
+    "release": "changeset publish"
   },
   "keywords": [
     "cli",
