@@ -1,17 +1,17 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
 function interpolate(content: string, replacements: Record<string, string>) {
   return Object.entries(replacements).reduce(
     (acc, [key, value]) => acc.replaceAll(`{{${key}}}`, value),
-    content
+    content,
   );
 }
 
 export async function copyAndReplaceTemplate(
   srcDir: string,
   destDir: string,
-  replacements: Record<string, string>
+  replacements: Record<string, string>,
 ) {
   fs.mkdirSync(destDir, { recursive: true });
 
@@ -24,7 +24,7 @@ export async function copyAndReplaceTemplate(
     if (entry.isDirectory()) {
       await copyAndReplaceTemplate(srcPath, destPath, replacements);
     } else {
-      const raw = fs.readFileSync(srcPath, 'utf8');
+      const raw = fs.readFileSync(srcPath, "utf8");
       const interpolated = interpolate(raw, replacements);
       fs.writeFileSync(destPath, interpolated);
     }
