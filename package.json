@@ -1,34 +1,19 @@
 {
-  "name": "@sandeep-jaiswar/dev-cli",
-  "version": "0.0.1",
-  "description": "CLI for scaffolding internal React apps and components",
+  "author": {
+    "email": "jaiswarsandeep119@gmail.com",
+    "name": "sandeep jaiswar",
+    "url": "https://github.com/sandeep-jaiswar"
+  },
   "bin": {
-    "dev": "./bin/index.js"
+    "dev-cli": "./dist/index.js"
   },
-  "scripts": {
-    "dev": "bun tsup src/index.ts --watch",
-    "build": "tsup",
-    "start": "node dist/index.js",
-    "prepare": "bun run build",
-    "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx,json,md}'",
-    "changeset": "changeset",
-    "version": "changeset version",
-    "release": "changeset publish"
-  },
-  "keywords": [
-    "cli",
-    "react",
-    "scaffold",
-    "devtools"
-  ],
-  "license": "MIT",
   "dependencies": {
     "chalk": "^5.4.1",
     "change-case": "^5.4.4",
     "commander": "^13.1.0",
     "inquirer": "^9.0.0"
   },
+  "description": "CLI for scaffolding internal React apps and components",
   "devDependencies": {
     "@changesets/cli": "^2.29.3",
     "@eslint/css": "^0.7.0",
@@ -45,8 +30,46 @@
     "tsup": "^8.4.0",
     "typescript-eslint": "^8.32.0"
   },
-  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.js",
+      "require": "./dist/*.cjs",
+      "types": "./dist/*.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "cli",
+    "react",
+    "scaffold",
+    "devtools"
+  ],
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "name": "@sandeep-jaiswar/dev-cli",
   "peerDependencies": {
     "typescript": "^5"
-  }
+  },
+  "scripts": {
+    "build": "tsup",
+    "changeset": "changeset",
+    "dev": "bun tsup src/index.ts --watch",
+    "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx,json,md}'",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "prepare": "bun run build",
+    "release": "changeset publish",
+    "start": "node dist/index.js",
+    "version": "changeset version"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "0.0.1"
 }

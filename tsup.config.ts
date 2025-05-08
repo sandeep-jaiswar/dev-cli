@@ -1,15 +1,13 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: ['src/index.ts'],
-  format: ['esm'],
-  target: 'node20',
-  splitting: false,
-  sourcemap: true,
-  clean: true,
+  outDir: "dist",
+  format: ["esm", "cjs"],
+  target: "es2020",
   dts: true,
-  outDir: 'dist',
-  banner: {
-    js: '#!/usr/bin/env node'
-  }
+  clean: true,
+  sourcemap: true,
+  splitting: false,
+  minify: false,
 });
