@@ -1,6 +1,6 @@
 {
   "name": "@sandeep-jaiswar/dev-cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "CLI for scaffolding internal React apps and components",
   "bin": {
     "dev": "./bin/index.js"
