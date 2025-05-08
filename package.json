@@ -6,21 +6,40 @@
     "dev": "./bin/index.js"
   },
   "scripts": {
-    "build": "esbuild bin/index.ts --bundle --platform=node --outfile=bin/index.js --target=node18",
-    "dev": "bun run bin/index.ts",
-    "lint": "eslint . --ext .ts",
-    "prepare": "bun run build"
+    "dev": "bun tsup src/index.ts --watch",
+    "build": "tsup",
+    "start": "node dist/index.js",
+    "prepare": "bun run build",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx,json,md}'"
   },
-  "keywords": ["cli", "react", "scaffold", "devtools"],
+  "keywords": [
+    "cli",
+    "react",
+    "scaffold",
+    "devtools"
+  ],
   "license": "MIT",
   "dependencies": {
+    "chalk": "^5.4.1",
+    "change-case": "^5.4.4",
+    "commander": "^13.1.0",
     "inquirer": "^9.0.0"
   },
   "devDependencies": {
+    "@eslint/css": "^0.7.0",
+    "@eslint/js": "^9.26.0",
+    "@eslint/json": "^0.12.0",
+    "@eslint/markdown": "^6.4.0",
+    "@types/bun": "latest",
+    "@types/inquirer": "^9.0.8",
     "esbuild": "^0.19.0",
-    "eslint": "^8.56.0",
+    "eslint": "^9.26.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.1.0",
     "prettier": "^3.2.5",
-    "@types/bun": "latest"
+    "tsup": "^8.4.0",
+    "typescript-eslint": "^8.32.0"
   },
   "type": "module",
   "peerDependencies": {
